@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MathStar Learn – Learn & Play Maths!</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="mathstar.css"/>
+</head>
+<body>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+<header id="hero">
+  <div class="hero-stars" id="heroStars"></div>
+  <div class="hero-title">
+    <span>M</span><span>a</span><span>t</span><span>h</span><span>S</span><span>t</span><span>a</span><span>r</span>
+    &nbsp;
+    <span>G</span><span>h</span><span>a</span><span>n</span><span>a</span>
+    ⭐
+  </div>
+  <p class="hero-sub">Learn Maths the fun way! Tricks, visuals &amp; challenges for every class.</p>
+
+  <!-- Class Selector -->
+  <div class="class-selector-wrap">
+    <button class="class-btn active" data-class="1">Class 1</button>
+    <button class="class-btn" data-class="2">Class 2</button>
+    <button class="class-btn" data-class="3">Class 3</button>
+    <button class="class-btn" data-class="4">Class 4</button>
+    <button class="class-btn" data-class="5">Class 5</button>
+    <button class="class-btn" data-class="6">Class 6</button>
+  </div>
+  <div class="selected-class-badge" id="classBadge">📚 Class 1 – Numbers up to 20</div>
+</header>
+
+<!-- =========================================================
+     NAV TABS
+========================================================= -->
+<nav id="nav-tabs">
+  <button class="tab-btn active" data-op="add"><span class="tab-emoji">➕</span>Addition</button>
+  <button class="tab-btn" data-op="sub"><span class="tab-emoji">➖</span>Subtraction</button>
+  <button class="tab-btn" data-op="mul"><span class="tab-emoji">✖️</span>Multiplication</button>
+  <button class="tab-btn" data-op="div"><span class="tab-emoji">➗</span>Division</button>
+  <button class="tab-btn" data-op="test"><span class="tab-emoji">🎯</span>Test Yourself!</button>
+</nav>
+
+<!-- =========================================================
+     ADDITION SECTION
+========================================================= -->
+<section class="section visible" id="sec-add">
+  <h2 class="section-title" style="color:var(--kente-green)">➕ Addition</h2>
+  <p class="section-desc" id="add-desc">Start with small numbers. Counting fruits is the easiest way!</p>
+
+  <div class="tricks-grid" id="add-tricks">
+    <!-- Cards injected by JS -->
+  </div>
+
+  <div class="demo-box" style="border-top:6px solid var(--kente-green)">
+    <h3>🍎 Try it yourself!</h3>
+    <div class="demo-controls">
+      <label>First number:</label>
+      <input type="number" id="add-a" value="3" min="0" max="100"/>
+      <label>+ Second number:</label>
+      <input type="number" id="add-b" value="4" min="0" max="100"/>
+      <button class="demo-btn" style="background:var(--kente-green);" onclick="runAddDemo()">Show me! 🚀</button>
+    </div>
+    <div class="demo-output" id="add-output"></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SUBTRACTION SECTION
+========================================================= -->
+<section class="section" id="sec-sub">
+  <h2 class="section-title" style="color:var(--kente-red)">➖ Subtraction</h2>
+  <p class="section-desc" id="sub-desc">Subtraction means taking away. Watch what happens!</p>
+
+  <div class="tricks-grid" id="sub-tricks"></div>
+
+  <div class="demo-box" style="border-top:6px solid var(--kente-red)">
+    <h3>🍌 Take some away!</h3>
+    <div class="demo-controls">
+      <label>Start with:</label>
+      <input type="number" id="sub-a" value="8" min="0" max="100"/>
+      <label>– Take away:</label>
+      <input type="number" id="sub-b" value="3" min="0" max="100"/>
+      <button class="demo-btn" style="background:var(--kente-red);" onclick="runSubDemo()">Show me! 🚀</button>
+    </div>
+    <div class="demo-output" id="sub-output"></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     MULTIPLICATION SECTION
+========================================================= -->
+<section class="section" id="sec-mul">
+  <h2 class="section-title" style="color:var(--kente-purple)">✖️ Multiplication</h2>
+  <p class="section-desc" id="mul-desc">Multiplication is fast adding! Groups make it easy.</p>
+
+  <div class="tricks-grid" id="mul-tricks"></div>
+
+  <div class="demo-box" style="border-top:6px solid var(--kente-purple)">
+    <h3>🔢 Times Table Explorer</h3>
+    <p style="color:var(--text-mid);font-size:.9rem;margin-bottom:12px;font-weight:600;">Click any cell to highlight its row and column!</p>
+    <div style="overflow-x:auto;">
+      <table class="times-table" id="timesTable"></table>
+    </div>
+  </div>
+
+  <div class="demo-box" style="border-top:6px solid var(--kente-purple);margin-top:20px;">
+    <h3>🍪 Group Visualiser</h3>
+    <div class="demo-controls">
+      <label>Groups of:</label>
+      <input type="number" id="mul-a" value="3" min="1" max="12"/>
+      <label>× How many groups:</label>
+      <input type="number" id="mul-b" value="4" min="1" max="12"/>
+      <button class="demo-btn" style="background:var(--kente-purple);" onclick="runMulDemo()">Show me! 🚀</button>
+    </div>
+    <div class="demo-output" id="mul-output"></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     DIVISION SECTION
+========================================================= -->
+<section class="section" id="sec-div">
+  <h2 class="section-title" style="color:var(--kente-blue)">➗ Division</h2>
+  <p class="section-desc" id="div-desc">Division means sharing equally. Let's share some food!</p>
+
+  <div class="tricks-grid" id="div-tricks"></div>
+
+  <div class="demo-box" style="border-top:6px solid var(--kente-blue)">
+    <h3>🍕 Share it equally!</h3>
+    <div class="demo-controls">
+      <label>Total items:</label>
+      <input type="number" id="div-a" value="12" min="1" max="100"/>
+      <label>÷ Share between:</label>
+      <input type="number" id="div-b" value="3" min="1" max="20"/>
+      <button class="demo-btn" style="background:var(--kente-blue);" onclick="runDivDemo()">Show me! 🚀</button>
+    </div>
+    <div class="demo-output" id="div-output"></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     TEST / QUIZ SECTION
+========================================================= -->
+<section class="section" id="sec-test">
+  <!-- Setup Screen -->
+  <div id="quiz-setup">
+    <div style="font-size:4rem;margin-bottom:10px;">🎯</div>
+    <h2>Test Your Maths!</h2>
+    <p style="color:var(--text-mid);font-weight:600;margin-bottom:4px;">Choose what to practise:</p>
+    <div class="quiz-options">
+      <button class="quiz-op-btn selected" data-q="add">➕ Addition</button>
+      <button class="quiz-op-btn" data-q="sub">➖ Subtraction</button>
+      <button class="quiz-op-btn" data-q="mul">✖️ Multiplication</button>
+      <button class="quiz-op-btn" data-q="div">➗ Division</button>
+      <button class="quiz-op-btn" data-q="mixed">🎲 Mixed</button>
+    </div>
+    <p style="color:var(--text-mid);font-weight:600;margin-bottom:8px;">10 questions · Based on your selected class</p>
+    <button class="start-quiz-btn" onclick="startQuiz()">🚀 Start Challenge!</button>
+  </div>
+
+  <!-- Active Quiz -->
+  <div id="quiz-active">
+    <div class="quiz-header">
+      <span id="q-counter" style="font-family:'Fredoka One',cursive;font-size:1rem;"></span>
+      <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qProgressFill" style="width:0%"></div></div>
+      <div class="quiz-score-label">⭐ <span id="qScore">0</span> pts</div>
+    </div>
+    <div class="quiz-question-card">
+      <div class="quiz-visual" id="qVisual"></div>
+      <div class="q-number" id="qText"></div>
+      <div class="answers-grid" id="answersGrid"></div>
+    </div>
+  </div>
+
+  <!-- Results Screen -->
+  <div id="quiz-result">
+    <div class="result-trophy" id="resTrophy"></div>
+    <div class="result-title" id="resTitle"></div>
+    <div class="result-score-big" id="resScore"></div>
+    <div class="result-message" id="resMsg"></div>
+    <button class="retry-btn" onclick="resetQuiz()">🔄 Try Again!</button>
+  </div>
+</section>
+
+<!-- Feedback Toast -->
+<div class="feedback-toast" id="feedbackToast">
+  <div class="fb-emoji" id="fbEmoji"></div>
+  <div class="fb-text" id="fbText"></div>
+  <div class="fb-sub" id="fbSub"></div>
+</div>
+</body>
+<footer>
+  <p>Made with ❤️ for <span>Ghana Primary School Students</span> | MathStar Ghana 🇬🇭</p>
+</footer>
+
+<script src="mathstar.js"></script>
+
+</html>
