@@ -280,7 +280,7 @@ const TRICKS = {
         const each   = total / groups;
         const emojis = ['🍕','🍇','🎁','🌟'];
         const e = emojis[groups % emojis.length];
-        const names = ['Ama','Kofi','Abena','Kojo'];
+        const names = ['Asana','Tampuli','Gariba','Kojo'];
         let html = '<div style="display:flex;flex-wrap:wrap;gap:10px;">';
         for(let g=0;g<groups;g++){
           html += `<div style="background:#e8f7ff;border:2px solid var(--kente-blue);border-radius:12px;padding:10px;min-width:100px;text-align:center;">
@@ -411,7 +411,7 @@ function runDivDemo() {
   if(b===0) { document.getElementById('div-output').textContent = "Can't divide by zero!"; return; }
   const each = Math.floor(a/b);
   const rem  = a % b;
-  const names = ['Ama','Kofi','Abena','Kojo','Yaw','Akua','Kwame','Efua','Nana','Fiifi'];
+  const names = ['Asana','Tampuli','Gariba','Kojo','Yaw','Akua','Kwame','Efua','Nana','Fiifi'];
   const emojis = ['🍎','🍪','⭐','🌸','🎈','🍇','🍕','🍦','🧁','🎀'];
   let html = '<div style="display:flex;flex-wrap:wrap;gap:10px;">';
   for(let g=0;g<Math.min(b,10);g++){
@@ -643,7 +643,7 @@ function renderQuestion(){
 }
 
 const CORRECT_MSGS = [
-  {emoji:'🎉',text:'Amazing!',sub:'You are a maths star!'},
+  {emoji:'🎉',text:'Asanazing!',sub:'You are a maths star!'},
   {emoji:'🏆',text:'Excellent!',sub:'Keep going, you\'re brilliant!'},
   {emoji:'🌟',text:'Superstar!',sub:'Ghana is proud of you!'},
   {emoji:'🔥',text:'On Fire!',sub:'Nothing can stop you!'},
